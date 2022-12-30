@@ -9,8 +9,9 @@ const HomePage: NextPage = () => {
     <Layout title='Home - OpenJira'>
       
       <Grid container spacing={ 2 }>
-
+        {/* 12 = 1 Column, 4 = 3 Columns */}
         <Grid item xs={ 12 } sm={ 4 }>
+          {/* This is the style that has access to the Themes */}
           <Card sx={{ height: 'calc(100vh - 100px )' }}>
             <CardHeader title="Pendientes" />
 
