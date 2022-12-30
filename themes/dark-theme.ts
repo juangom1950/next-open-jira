@@ -15,6 +15,7 @@ export const darkTheme = createTheme({
         },
 
         components: {
+            // we add here Mui. This is going to change the Appbar that is in the Navbar.tsx
             MuiAppBar: {
                 defaultProps: {
                     elevation: 0

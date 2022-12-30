@@ -1,3 +1,4 @@
+// We organize this 1st react, 2nd next and 3rd external library, 4th our components
 import { FC } from 'react';
 import Head from 'next/head';
 
@@ -11,6 +12,7 @@ interface Props {
 
 export const Layout:FC<Props> = ({ title = 'OpenJira', children }) => {
   return (
+      // sx means style and that have access to the theme
       <Box sx={{ flexFlow: 1 }}>
           <Head>
                 <title>{ title }</title>

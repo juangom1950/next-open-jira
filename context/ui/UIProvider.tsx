@@ -10,7 +10,7 @@ const UI_INITIAL_STATE: UIState = {
     sidemenuOpen: false,
 }
 
-
+// It is going to provide to the other components the  information that you want
 export const UIProvider:FC = ({ children }) => {
 
     const [state, dispatch] = useReducer( uiReducer, UI_INITIAL_STATE );

@@ -12,6 +12,7 @@ const menuItems: string[] = ['Inbox','Starred','Send Email','Drafts']
 
 export const Sidebar = () => {
 
+    // The useContext give me access to the Context that I need.
     const { sidemenuOpen, closeSideMenu  } = useContext( UIContext );
 
 
@@ -21,6 +22,7 @@ export const Sidebar = () => {
             open={ sidemenuOpen }
             onClose={ closeSideMenu }
         >
+            {/* This box is like a div */}
             <Box sx={{ width: 250 }}>
 
                 <Box sx={{ padding:'5px 10px' }}>
@@ -32,6 +34,8 @@ export const Sidebar = () => {
                         menuItems.map( (text, index) => (
                             <ListItem button key={ text }>
                                 <ListItemIcon>
+                                    {/* index % 2 give me even or uneven number */}
+                                    {/* These InboxOutlinedIcon are icons */}
                                     { index % 2 ? <InboxOutlinedIcon />: <MailOutlineOutlinedIcon />  }
                                 </ListItemIcon>
                                 <ListItemText primary={ text } />

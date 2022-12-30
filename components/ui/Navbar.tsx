@@ -11,6 +11,8 @@ export const Navbar = () => {
 
 
   return (
+      // This AppBar is going to be modified in the Themes
+      // We need to add Mui to the AppBar name overthere
       <AppBar position='sticky'>
           <Toolbar>
               <IconButton 
