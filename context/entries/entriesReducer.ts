@@ -6,7 +6,8 @@ type EntriesActionType =
    | { type: '[Entry] Add-Entry', payload: Entry  } 
    | { type: '[Entry] Entry-Updated', payload: Entry  } 
 
-
+// It isn't recomended to fire 2nd effects inside a reducer.
+// It means to fire effects that go beyond this function
 export const entriesReducer = ( state: EntriesState, action: EntriesActionType ): EntriesState => {
 
    switch (action.type) {

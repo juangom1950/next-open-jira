@@ -5,6 +5,7 @@ import { Entry } from '../../interfaces';
 
 import { EntriesContext, entriesReducer } from './';
 
+// This entries is the state
 export interface EntriesState {
     entries: Entry[];
 }
@@ -20,7 +21,7 @@ const Entries_INITIAL_STATE: EntriesState = {
         },
         {
             _id: uuidv4(),
-            description: 'En-Progreso Veniam in cupidatat adipisicing Lorem sunt est est ex cillum laboris fugiat officia fugiat.',
+            description: 'En-Progreso: Veniam in cupidatat adipisicing Lorem sunt est est ex cillum laboris fugiat officia fugiat.',
             status: 'in-progress',
             createdAt: Date.now() - 1000000,
         },

@@ -13,6 +13,7 @@ export const EntryCard:FC<Props>= ({ entry }) => {
 
     const { startDragging, endDragging } = useContext( UIContext );
 
+    // Here I am identifying which entrance I am ding the drag
     const onDragStart = ( event: DragEvent ) => {
         event.dataTransfer.setData('text', entry._id );
 

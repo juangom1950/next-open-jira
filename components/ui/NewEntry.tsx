@@ -33,6 +33,7 @@ export const NewEntry = () => {
 
 
   return (
+      // sx: Extend Style. It is going to be extended to the thems
       <Box sx={{ marginBottom: 2, paddingX: 2 }}>
         
         {
