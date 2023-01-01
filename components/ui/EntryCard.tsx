@@ -16,6 +16,7 @@ export const EntryCard:FC<Props>= ({ entry }) => {
     // Here I am identifying which entrance I am ding the drag
     const onDragStart = ( event: DragEvent ) => {
         event.dataTransfer.setData('text', entry._id );
+        console.log(entry._id);
 
         startDragging();
     }
@@ -27,7 +28,7 @@ export const EntryCard:FC<Props>= ({ entry }) => {
 
   return (
     <Card
-        sx={{ marginBottom: 1 }}
+        sx={{ marginBottom: 1, position: 'relative', zIndex: 999 }}
         // Eventos de drag
         draggable
         onDragStart={ onDragStart }
