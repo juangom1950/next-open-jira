@@ -26,7 +26,7 @@ export const EntryCard:FC<Props>= ({ entry }) => {
 
   return (
     <Card
-        sx={{ marginBottom: 1 }}
+        sx={{ marginBottom: 1, position:'relative', zIndex: 999 }}
         // Eventos de drag
         draggable
         onDragStart={ onDragStart }
