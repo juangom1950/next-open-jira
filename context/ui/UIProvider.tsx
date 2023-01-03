@@ -14,8 +14,12 @@ const UI_INITIAL_STATE: UIState = {
     isDragging: false,
 }
 
+interface Props {
+    children: React.ReactNode;
+}
 
-export const UIProvider:FC = ({ children }) => {
+
+export const UIProvider:FC<Props> = ({ children }) => {
 
     const [state, dispatch] = useReducer( uiReducer, UI_INITIAL_STATE );
 

@@ -4,5 +4,7 @@ services:
     container_name: entries-database
     ports:
       - 27017:27017
+    # This save the information in a phisical storage of the Computer disk
+    # In this way whe I delete the image the information is going to still there
     volumes:
       - ./mongo:/data/db

@@ -60,23 +60,34 @@ const updateEntry = async( req: NextApiRequest, res: NextApiResponse<Data> ) => 
         return res.status(400).json({ message: 'No hay entrada con ese ID: ' + id })
     }
 
+    // Here We are destructuring the req.body
+    // Here We are adding default values in case that they don't come
     const {
         description = entryToUpdate.description,
         status = entryToUpdate.status,
     } = req.body;
 
     try {
+        // runValidators: true, mongoose will validate the update against the mongoose Shcema
+        // new: true it will return the validated information
         const updatedEntry = await Entry.findByIdAndUpdate( id, { description, status }, { runValidators: true, new: true });
+
+        // Another way to do what we did in the line above
+        // entryToUpdate.description = description;
+        // entryToUpdate.status = status;
+        // await entryToUpdate.save();
+
         await db.disconnect();
+        // ! ir said you aren't going to be null, we will have a value always
         res.status(200).json( updatedEntry! );
         
     } catch (error: any) {
         await db.disconnect();
         res.status(400).json({ message: error.errors.status.message });
+        // Thi is a way to see the details of the error
+        //res.status(400).json({ message: JSON.stringify(error) });
     }
-    // entryToUpdate.description = description;
-    // entryToUpdate.status = status;
-    // await entryToUpdate.save();
+    
 
 
 

@@ -14,13 +14,18 @@ const Entries_INITIAL_STATE: EntriesState = {
     entries: [],
 }
 
+interface Props {
+    children: React.ReactNode;
+}
 
-export const EntriesProvider:FC = ({ children }) => {
+
+export const EntriesProvider:FC<Props> = ({ children }) => {
 
     const [state, dispatch] = useReducer( entriesReducer , Entries_INITIAL_STATE );
 
     const addNewEntry = async( description: string ) => {
 
+        // 2nd argument is the data that I want to send
         const { data } = await entriesApi.post<Entry>('/entries', { description });
         dispatch({ type: '[Entry] Add-Entry', payload: data });
 

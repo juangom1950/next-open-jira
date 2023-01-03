@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-/**
+/** These are the status of the mongoose connections:
  * 0 = disconnected
  * 1 = connected
  * 2 = connecting
@@ -25,6 +25,7 @@ export const connect = async() => {
             return;
         }
 
+        // I am going to disconnect if we have any state that isn't 1s
         await mongoose.disconnect();
     }
 
@@ -35,6 +36,7 @@ export const connect = async() => {
 
 export const disconnect = async() => {
     
+    // Dont get desconnected if you are in development
     if ( process.env.NODE_ENV === 'development' ) return;
 
     if ( mongooConnection.isConnected === 0 ) return;
