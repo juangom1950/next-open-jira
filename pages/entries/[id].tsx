@@ -13,11 +13,7 @@ import { Entry, EntryStatus } from "../../interfaces";
 import { dateFunctions } from '../../utils';
 
 
-
-
-
 const validStatus: EntryStatus[] = ['pending', 'in-progress','finished'];
-
 
 interface Props {
     entry: Entry
@@ -52,6 +48,7 @@ export const EntryPage:FC<Props> = ({ entry }) => {
             description: inputValue
         }
 
+        // We need to add the sing of the method in the EntryContext
         updateEntry( updatedEntry, true );
     }
 
@@ -133,6 +130,7 @@ export const EntryPage:FC<Props> = ({ entry }) => {
             right: 30,
             backgroundColor: 'error.dark'
         }}>
+            {/* This is the icon that I want ot add */}
             <DeleteOutlinedIcon />
         </IconButton>
 
@@ -142,36 +140,36 @@ export const EntryPage:FC<Props> = ({ entry }) => {
   );
 };
 
-
-
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
+// We get params whe we desturcture the ctx (context)
+// Nextjs recomendation is that we should work with statics
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     
     const { id } = params as { id: string };
     
     const entry = await dbEntries.getEntryById( id );
 
-
+    // we could say: if( !isvalidObjectIs(id)), but this haey is more eficient.
     if ( !entry ) {
         return {
             redirect: {
                 destination: '/',
+                // True will say that this page isn't going to work again
+                // false meanis that the page is going to keep existing
                 permanent: false,
             }
         }
     }
 
-
+    // What I return in this props is going to be int this props above:
+    // export const EntryPage:FC<Props> = (props) => {
+    // At this poite we always know that we are going to have the Entry
     return {
         props: {
             entry
         }
     }
 }
-
-
-
-
 
 export default EntryPage;
