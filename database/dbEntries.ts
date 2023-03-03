@@ -2,7 +2,7 @@ import { isValidObjectId } from 'mongoose';
 import { Entry, IEntry } from '../models';
 import { db } from './';
 
-
+// We do this to avoid the error cause by the ObjectId that come from the database
 export const getEntryById = async( id: string ): Promise<IEntry | null> => {
 
     if ( !isValidObjectId(id) ) return null;
